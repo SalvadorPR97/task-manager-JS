@@ -9,11 +9,11 @@ allDivs[4].className = "task-count";
 
 let taskList;
 console.log(localStorage);
-if (localStorage.getItem("taskList") === null) {
+if (localStorage.getItem("taskList") === null || localStorage.getItem("taskList") === undefined) {
     localStorage.setItem("taskList", "");
-} else {
-    taskList = localStorage.getItem("taskList").split(",");
 }
+taskList = localStorage.getItem("taskList").split(",");
+
 
 
 let ulTasks = document.querySelector("ul");
