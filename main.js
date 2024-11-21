@@ -8,8 +8,13 @@ divNoPendingTasks.className = "empty";
 allDivs[4].className = "task-count";
 
 let taskList;
+console.log(localStorage);
+if (localStorage.getItem("taskList") === null) {
+    localStorage.setItem("taskList", "");
+} else {
+    taskList = localStorage.getItem("taskList").split(",");
+}
 
-taskList = localStorage.getItem("taskList").split(",");
 
 let ulTasks = document.querySelector("ul");
 
@@ -22,7 +27,7 @@ txtField.value = "";
 const allSpans = document.querySelectorAll("span");
 const spanCounter = allSpans[1];
 
-if (taskList[0] != []) {
+if (taskList[0] != "") {
     taskList.forEach((task) => {
         addTask(task);
     });
